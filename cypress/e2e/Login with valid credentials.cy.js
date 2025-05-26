@@ -9,11 +9,7 @@ describe('Login with valid credentials', () => {
     //Step 2: Verify that the URL is correct
     cy.url().should('eql', 'https://constel-social-network.vercel.app/login')
 
-    //Step 3: Enter the valid email and password
-    cy.get('input[placeholder="Enter email here..."]').type('martinsaric94@gmail.com')
-    cy.get('input[placeholder="Enter password here..."]').type('constel123')
-
-    //Step 4: Click on the "Submit" (login) button
-    cy.get('button[id="loginSubmitBtn"]').click()
+    //Step 3: Cypress command for login flow
+    cy.login('martinsaric94@gmail.com', 'constel123')
   })
 })
