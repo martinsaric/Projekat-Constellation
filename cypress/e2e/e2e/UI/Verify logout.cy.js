@@ -2,7 +2,7 @@ describe('Logout', () => {
 
     //Step 1: Visit the login page (root URL)
     beforeEach(() => {
-      cy.visit('/')
+      cy.visit('/login')
     })
 
     it('Verify that the user can logout', () => {
