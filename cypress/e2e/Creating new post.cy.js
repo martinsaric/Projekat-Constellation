@@ -1,13 +1,10 @@
 describe('Creating new post', () => {
 
-    beforeEach(() => {
-        cy.visit('/login')
-        cy.login('martinsaric94@gmail.com', 'constel123')
-        
-    })
-
     it('Verify that the user can create a new post', () => {
         
+        cy.visit('/login')
+        cy.login('martinsaric94@gmail.com', 'constel123')
+
         const randomNumber = Math.floor(Math.random() * 10000)
         const postTitle = `Test Post #${randomNumber}`
 
