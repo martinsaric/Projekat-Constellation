@@ -117,3 +117,19 @@ Cypress.Commands.add('apiLogin', () => {
                 Cypress.env('token', token);
         })
 })
+
+Cypress.Commands.add('apiCreatePost', (text) => {
+        const token = Cypress.env('token')
+        
+        cy.request({
+            method: 'POST',
+            url: 'https://api.hr.constel.co/api/v1/posts',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            form: true,
+            body: {
+                text: text
+            }
+          })
+})
