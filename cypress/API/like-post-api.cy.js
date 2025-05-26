@@ -1,9 +1,14 @@
+import { apiURL } from "../support/urls"
+
 describe('Like post using API request', () => {
 
 
     it('Verify that the post can be liked with API request', () => {
 
         cy.apiLogin().then(() => {
+
+            const token = Cypress.env('token')
+
             cy.apiCreatePost('Test 2 API').then((response) => {
             console.log(response.body)
             expect(response.status).to.eq(200)
@@ -11,7 +16,7 @@ describe('Like post using API request', () => {
 
             cy.request({
                 method: 'POST',
-                url: 'https://api.hr.constel.co/api/v1/posts/17fe1186-4cb5-44fa-836d-9297a092481d/like',
+                url: apiURL.likePost,
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
