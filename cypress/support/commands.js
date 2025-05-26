@@ -100,3 +100,20 @@ Cypress.Commands.add('createAudioPost', (audioPostTitle) => {
 
         return cy.then(() => audioPostTitle);
 })
+
+Cypress.Commands.add('apiLogin', () => {
+
+  cy.request({
+            method: 'POST',
+            url: 'https://api.hr.constel.co/api/v1/login',
+            body: {
+                email: 'martinsaric94@gmail.com',
+                password: 'constel123'
+            }
+            }).as('login').then((response) => {
+                expect(response.status).to.eq(200)
+                const token = response.body.token
+                console.log(token)
+                Cypress.env('token', token);
+        })
+})
