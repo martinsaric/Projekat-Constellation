@@ -79,3 +79,5 @@ Cypress.Commands.add('createNewComment', (postTitle) => {
 
         return cy.wrap(uniqueComment);
       })
+
+
