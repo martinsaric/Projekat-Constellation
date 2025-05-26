@@ -49,7 +49,9 @@ Cypress.Commands.add('createNewPost', () => {
 });
 
 Cypress.Commands.add('createNewComment', (postTitle) => {
-        //Step 1: Visit the home page
+
+        const randomNumber = Math.floor(Math.random() * 10000)
+        const uniqueComment = `Test comment #${randomNumber}`;      //Step 1: Visit the home page
         cy.visit('/home')
 
         //Step 2: Find the selector for the "Comment" button and click on it
@@ -72,6 +74,8 @@ Cypress.Commands.add('createNewComment', (postTitle) => {
         .should('contain.text', '0')
 
         //Step 5: Type a comment and click on the "Submit" button
-        cy.get('input[placeholder="Write a comment"]').type('New comment added')
+        cy.get('input[placeholder="Write a comment"]').type(uniqueComment)
         cy.get('[id="createInputSubmitBtn"]').click()
+
+        return cy.wrap(uniqueComment);
       })
