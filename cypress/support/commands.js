@@ -26,7 +26,7 @@
 
 
 // Command for login flow
-Cypress.Commands('login', (email, password) => {
+Cypress.Commands.add('login', (email, password) => {
   cy.get('input[placeholder="Enter email here..."]').type(email)
   cy.get('input[placeholder="Enter password here..."]').type(password)
   cy.get('button[id="loginSubmitBtn"]').click()
