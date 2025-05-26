@@ -2,7 +2,7 @@ describe('Login with valid credentials', () => {
 
   //Step 1: Visit login page ( root URL)
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/login')
   })
   it('Verify that the URL is correct', () => {
 
