@@ -1,10 +1,9 @@
 describe('Login with valid credentials', () => {
 
-  //Step 1: Visit login page ( root URL)
-  beforeEach(() => {
-    cy.visit('/login')
-  })
   it('Verify that the URL is correct', () => {
+
+    //Step 1: Visit login page ( root URL)
+    cy.visit('/login')
 
     //Step 2: Verify that the URL is correct
     cy.url().should('eql', 'https://constel-social-network.vercel.app/login')
