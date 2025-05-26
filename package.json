@@ -1,0 +1,14 @@
+{
+  "name": "projekat-constellation",
+  "version": "1.0.0",
+  "description": "This is a project for the social media web application ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martin Saric",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^14.4.0"
+  }
+}
