@@ -25,6 +25,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
+import { apiURL } from "../support/urls";
+
 // Command for login flow
 Cypress.Commands.add('login', (email, password) => {
   cy.visit('/login')
@@ -221,4 +223,24 @@ Cypress.Commands.add('apiDeleteComment', (postId, commentId, token) => {
     }).then((response) => {
         expect(response.status).to.eq(200)
     })
+})
+
+Cypress.Commands.add('apiGetComment', (postId, uniqueComment, token) => {
+
+   return cy.request({
+
+            method: 'GET',
+            url: apiURL.getComments(postId),
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response) => {
+            const comment = response.body.comments
+            const myComment = comment.find(comment => comment.text === uniqueComment )
+
+            expect(myComment).to.not.be.undefined
+
+            return myComment
+
+          })
 })
