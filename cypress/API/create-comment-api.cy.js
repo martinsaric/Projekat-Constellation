@@ -7,19 +7,35 @@ describe('Create comment using API request', () => {
         cy.apiLogin().then(() => {
             const token = Cypress.env('token')
 
-            cy.request({
+            cy.apiCreatePost('Test API gorilla').then((response) => {
+                console.log(response.body);
+
+
+                cy.request({
+                    method: 'GET',
+                    url: 'https://api.hr.constel.co/api/v1/posts',
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                })
+
+
+                cy.request({
                 method: 'POST',
                 url: apiURL.createComment,
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
                 body: {
-                    content: 'Test comment API'
+                    text: 'Test comment API'
                 }
 
             }).then((response) => {
                 expect(response.status).to.eq(200)
             })
+            })
+
+           
         })
         
     });
