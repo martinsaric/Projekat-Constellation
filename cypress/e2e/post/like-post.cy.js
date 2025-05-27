@@ -1,5 +1,6 @@
 describe('Liking a post functionality', () => {
 
+    let postTitle
 
     it('Verify that the user can like a post', () => {
 
@@ -8,7 +9,9 @@ describe('Liking a post functionality', () => {
         cy.login('martinsaric94@gmail.com', 'constel123')
 
         //Step 2: Create a new post
-        cy.createNewPost().then(postTitle => {
+        cy.createNewPost().then(title => {
+
+            postTitle = title
 
             //Step 3: Validating that the new post is visible
             cy.visit('/home')
@@ -28,6 +31,22 @@ describe('Liking a post functionality', () => {
             .parent('div[class="home__main__feed__post__body"]')
             .find('button')
             .should('contain.text', '1')
+        })
+
+        cy.apiLogin().then(() => {
+            const token = Cypress.env('token')
+
+            cy.apiGetPost(postTitle, token).then((myPost) => {
+                const postId = myPost.post_id
+
+                cy.apiUnLikePost(postId, token).then(() => {
+
+                      cy.apiDeletePost(postId, token).then((response) => {
+                    expect(response.status).to.eq(200)
+                    })
+                })  
+
+            })
         })
 
     })

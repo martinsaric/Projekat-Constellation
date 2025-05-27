@@ -147,7 +147,7 @@ Cypress.Commands.add('apiDeletePost', (postId, token) => {
 })
 
 
-Cypress.Commands.add('ApiGetPost', (postTitle, token) => {
+Cypress.Commands.add('apiGetPost', (postTitle, token) => {
 
    return cy.request({
 
@@ -165,4 +165,31 @@ Cypress.Commands.add('ApiGetPost', (postTitle, token) => {
             return myPost
 
           })
+})
+
+
+Cypress.Commands.add('apiLikePost', (postId, token) => {
+
+  return cy.request({
+        method: 'POST',
+        url: `https://api.hr.constel.co/api/v1/posts/${postId}/like`,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    })
+
+
+})
+
+Cypress.Commands.add('apiUnLikePost', (postId, token) => {
+
+  return cy.request({
+        method: 'DELETE',
+        url: `https://api.hr.constel.co/api/v1/posts/${postId}/like`,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    })
+
+
 })
