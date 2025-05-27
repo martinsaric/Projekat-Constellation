@@ -133,3 +133,16 @@ Cypress.Commands.add('apiCreatePost', (text) => {
             }
           })
 })
+
+
+Cypress.Commands.add('apiDeletePost', (postId) => {
+
+  const token = Cypress.env('token')
+  cy.request({
+      method: 'DELETE',
+      url: `https://api.hr.constel.co/api/v1/posts/${postId}`,
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+  })
+})
