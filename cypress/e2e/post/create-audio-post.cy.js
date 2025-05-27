@@ -3,7 +3,11 @@ describe("Create an audio post", () => {
     const randomNumber = Math.floor(Math.random() * 10000);
     const audioPostTitle = `Audio post #${randomNumber}`;
 
-    cy.visit("/login");
+    cy.visit("/login", {  onBeforeLoad(win) {
+        cy.stub(win.navigator.mediaDevices, "getUserMedia").resolves(new MediaStream());
+      }
+    });
+
     cy.login("martinsaric94@gmail.com", "constel123");
 
     cy.createAudioPost(audioPostTitle).then(() => {
