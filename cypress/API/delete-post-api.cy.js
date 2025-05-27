@@ -5,18 +5,20 @@ describe('Delete post using API request', () => {
         cy.apiLogin().then(() => {
             const token = Cypress.env('token')
 
-            const postId = 'b4953385-f347-41d0-9b77-02d460928517'
+            const randomNumber = Math.floor(Math.random() * 10000)
+            const postTitle = `Test post #${randomNumber}`
 
-            cy.request({
-                method: 'DELETE',
-                url: `https://api.hr.constel.co/api/v1/posts/${postId}`,
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                }
-            }).then((response) => {
-                expect(response.status).to.eq(200)
+            cy.apiCreatePost(postTitle).then(() => {
+
+                cy.apiGetPost(postTitle, token).then((myPost) => {
+                    const postId = myPost.post_id
+
+                    cy.apiDeletePost(postId, token).then((response) => {
+                        expect(response.status).to.eq(200)
+                    })
+
+                })
             })
-
         })
 
 
