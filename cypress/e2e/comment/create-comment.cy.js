@@ -21,8 +21,21 @@ describe('Create a comment', () => {
          //Step 5: Verify that the comment is visible on the page
         cy.get('div[class="post__comments"]')
         .should('contain.text', uniqueComment)
+
+        //Step 6: Delete the comment
+        cy.contains('button[type="button"]', 'Delete')
+        .should('be.visible')
+        .click()
+
+
+        //Step 7: Validating that the comment is deleted
+        cy.get('div[class="post__comments"]')
+        .should('not.contain.text', uniqueComment)
         })   
-        })
+    })
+
+       
+        
     })
     
 });

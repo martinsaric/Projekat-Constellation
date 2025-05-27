@@ -193,3 +193,32 @@ Cypress.Commands.add('apiUnLikePost', (postId, token) => {
 
 
 })
+
+
+Cypress.Commands.add('apiCreateComment', (postId, uniqueComment, token) => {
+
+    return cy.request({
+        method: 'POST',
+        url: `https://api.hr.constel.co/api/v1/posts/${postId}/comments`,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+        body: {
+            text: uniqueComment
+        },
+    })
+})
+
+
+Cypress.Commands.add('apiDeleteComment', (postId, commentId, token) => {
+
+    return cy.request({
+        method: 'DELETE',
+        url: `https://api.hr.constel.co/api/v1/posts/${postId}/comments/${commentId}`,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((response) => {
+        expect(response.status).to.eq(200)
+    })
+})
