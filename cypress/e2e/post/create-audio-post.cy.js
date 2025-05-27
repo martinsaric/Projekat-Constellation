@@ -21,7 +21,7 @@ describe('Create an audio post', () => {
         cy.apiLogin().then(() => {
             const token = Cypress.env('token')
 
-            cy.apiGetPost(audioPostTitle, token).then((response) => {
+            cy.apiGetPost(audioPostTitle, token).then((myPost) => {
                 const postId = myPost.post_id
 
                 cy.apiDeletePost(postId, token).then((response) => {
