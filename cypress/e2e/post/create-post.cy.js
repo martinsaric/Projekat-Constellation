@@ -26,7 +26,7 @@ describe('Creating new post', () => {
             const token = Cypress.env('token')
 
             //Step 6: Get the created post ID
-            cy.getApiPost(postTitle, token).then((myPost) => {
+            cy.apiGetPost(postTitle, token).then((myPost) => {
                 const postId = myPost.post_id
 
                 //Step 7: Delete the post
