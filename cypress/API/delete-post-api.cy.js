@@ -5,9 +5,11 @@ describe('Delete post using API request', () => {
         cy.apiLogin().then(() => {
             const token = Cypress.env('token')
 
+            const postId = 'b4953385-f347-41d0-9b77-02d460928517'
+
             cy.request({
                 method: 'DELETE',
-                url: 'https://api.hr.constel.co/api/v1/posts/17fe1186-4cb5-44fa-836d-9297a092481d',
+                url: `https://api.hr.constel.co/api/v1/posts/${postId}`,
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
