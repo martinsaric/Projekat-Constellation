@@ -135,14 +135,34 @@ Cypress.Commands.add('apiCreatePost', (text) => {
 })
 
 
-Cypress.Commands.add('apiDeletePost', (postId) => {
+Cypress.Commands.add('apiDeletePost', (postId, token) => {
 
-  const token = Cypress.env('token')
-  cy.request({
+  return cy.request({
       method: 'DELETE',
       url: `https://api.hr.constel.co/api/v1/posts/${postId}`,
       headers: {
           Authorization: `Bearer ${token}`,
       },
   })
+})
+
+
+Cypress.Commands.add('getApiPost', (postTitle, token) => {
+
+   return cy.request({
+
+            method: 'GET',
+            url: 'https://api.hr.constel.co/api/v1/posts',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response) => {
+            const posts = response.body.posts
+            const myPost = posts.find(post => post.text === postTitle )
+
+            expect(myPost).to.not.be.undefined
+
+            return myPost
+
+          })
 })
