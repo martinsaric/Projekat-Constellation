@@ -147,7 +147,7 @@ Cypress.Commands.add('apiDeletePost', (postId, token) => {
 })
 
 
-Cypress.Commands.add('getApiPost', (postTitle, token) => {
+Cypress.Commands.add('ApiGetPost', (postTitle, token) => {
 
    return cy.request({
 

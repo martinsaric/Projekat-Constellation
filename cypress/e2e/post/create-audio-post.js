@@ -16,6 +16,18 @@ describe('Create an audio post', () => {
             cy.get('[class="home__main__feed__post card"]')
             .should('be.visible')
             .and('contain', audioPostTitle)
+        })
+
+        cy.apiLogin().then(() => {
+            const token = Cypress.env('token')
+
+            cy.apiGetPost(audioPostTitle, token).then((response) => {
+                const postId = myPost.post_id
+
+                cy.apiDeletePost(postId, token).then((response) => {
+                    expect(response.status).to.eq(200)
+                })
             })
+        })
     })
 })
