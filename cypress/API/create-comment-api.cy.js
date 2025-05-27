@@ -1,43 +1,29 @@
-import { apiURL } from "../support/urls"
+import { apiURL } from "../support/urls";
 
-describe('Create comment using API request', () => {
+describe("Create comment using API request", () => {
+  it("Verify that the comment can be created with API request", () => {
+    cy.apiLogin().then(() => {
+      const token = Cypress.env("token");
 
-    it('Verify that the comment can be created with API request', () => {
+      const randomNumber = Math.floor(Math.random() * 10000);
+      const postTitle = `Test post #${randomNumber}`;
+      const uniqueComment = `Test comment #${randomNumber}`;
 
-        cy.apiLogin().then(() => {
-            const token = Cypress.env('token')
+      cy.apiCreatePost(postTitle).then(() => {
+        cy.apiGetPost(postTitle, token).then((myPost) => {
+          const postId = myPost.post_id;
 
-            cy.apiCreatePost('Test API gorilla').then((response) => {
-                console.log(response.body);
+          cy.apiCreateComment(postId, uniqueComment, token).then((response) => {
+            expect(response.status).to.eq(200);
 
-
-                cy.request({
-                    method: 'GET',
-                    url: 'https://api.hr.constel.co/api/v1/posts',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    }
-                })
-
-
-                cy.request({
-                method: 'POST',
-                url: apiURL.createComment,
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-                body: {
-                    text: 'Test comment API'
-                }
-
-            }).then((response) => {
-                expect(response.status).to.eq(200)
-            })
-            })
-
-           
-        })
-        
+            cy.apiGetComment(postId, uniqueComment, token).then(
+              (foundComment) => {
+                expect(foundComment.text).to.eq(uniqueComment);
+              }
+            );
+          });
+        });
+      });
     });
-
-})
+  });
+});
