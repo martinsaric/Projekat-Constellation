@@ -33,15 +33,19 @@ describe('Liking a post functionality', () => {
             .should('contain.text', '1')
         })
 
+        //Step 6: Login with API to get token
         cy.apiLogin().then(() => {
             const token = Cypress.env('token')
 
+            //Step 7: Get the created post ID
             cy.apiGetPost(postTitle, token).then((myPost) => {
                 const postId = myPost.post_id
 
+                //Step 8: Unlike the post (It can't be deleted with like)
                 cy.apiUnLikePost(postId, token).then(() => {
 
-                      cy.apiDeletePost(postId, token).then((response) => {
+                    //Step 9: Delete the post
+                    cy.apiDeletePost(postId, token).then((response) => {
                     expect(response.status).to.eq(200)
                     })
                 })  
