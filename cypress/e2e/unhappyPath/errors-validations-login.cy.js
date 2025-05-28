@@ -1,4 +1,4 @@
-describe("Errors validations login", () => {
+describe("Errors validations for login form", () => {
   it("User login with empty email and valid password", () => {
     cy.visit("/login");
     cy.get('input[placeholder="Enter password here..."]').type("constel123");
