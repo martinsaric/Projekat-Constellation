@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-all-chrome": "cypress run --browser chrome --mochawesome-reporter",
-    "test-all-firefox": "cypress run --browser firefox --mochawesome-reporter",
-    "test-all-edge": "cypress run --browser edge --mochawesome-reporter"
-
+    "test-all-chrome": "cypress run --browser chrome --reporter mochawesome",
+    "test-all-firefox": "cypress run --browser firefox",
+    "test-all-edge": "cypress run --browser edge"
   },
   "author": "Martin Saric",
   "license": "ISC",
