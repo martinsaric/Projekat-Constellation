@@ -1,24 +1,24 @@
 # 🧪 Cypress Testing Project
 
-Title: This is the project for social media web/mobile application. I used automation testing to cover functionalities, validations, responsiveness and API requests.
+Title: This is the project for a social media web/mobile application. I used automation testing to cover functionalities, validations, responsiveness and API requests.
 Tech: Cypress, JS, REST API.
 
 ---
 
-## ✅ Covered Features
+## ✅ Covered Features and testing objectives
 
 - **Authentication**
-  - Login (successful and unsuccessful scenarios)
-  - Logout
-  - Form validation errors (empty fields, invalid credentials)
+  - Login (successful and unsuccessful scenarios) **Cypress/e2e/login**
+  - Logout **Cypress/e2e/login**
+  - Form validation errors (empty fields, invalid credentials) Cypress/e2e/unhappyPath
 
 - **Post Interactions**
   - Create regular and audio posts
-  - Like, comment, delete posts
+  - Like, comment, and delete posts
   - Dislike posts, delete comments
 
 - **Responsiveness**
-  - Some test executed in both **Desktop** viewport and some tests in **Mobile** viewports
+  - Some test executed in both **Desktop** viewport and some tests in **Mobile** viewport
 
 - **Cross-browser support**
   - Scripts tested in:
@@ -30,4 +30,6 @@ Tech: Cypress, JS, REST API.
 
 ## 🌐 API Tests
 
-Tested API requests for GET, POST and DELETE methods for posts, comments, likes and authentification scenarios. 
+Tested API requests for GET, POST, and DELETE methods for posts, comments, likes, and authentication scenarios. 
+
+---
