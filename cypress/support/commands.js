@@ -102,7 +102,7 @@ Cypress.Commands.add("createAudioPost", (audioPostTitle) => {
 Cypress.Commands.add("apiLogin", () => {
   cy.request({
     method: "POST",
-    url: baseApiUrl.login,
+    url: apiUrl.login,
     body: {
       email: "martinsaric94@gmail.com",
       password: "constel123",
@@ -122,7 +122,7 @@ Cypress.Commands.add("apiCreatePost", (text) => {
 
   cy.request({
     method: "POST",
-    url: baseApiUrl.createPost,
+    url: apiUrl.createPost,
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -165,7 +165,7 @@ Cypress.Commands.add("apiGetPost", (postTitle, token) => {
 Cypress.Commands.add("apiLikePost", (postId, token) => {
   return cy.request({
     method: "POST",
-    url: baseApiUrl.likePost(postId),
+    url: apiUrl.likePost(postId),
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -175,7 +175,7 @@ Cypress.Commands.add("apiLikePost", (postId, token) => {
 Cypress.Commands.add("apiUnLikePost", (postId, token) => {
   return cy.request({
     method: "DELETE",
-    url: baseApiUrl.likePost(postId),
+    url: apiUrl.likePost(postId),
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -185,7 +185,7 @@ Cypress.Commands.add("apiUnLikePost", (postId, token) => {
 Cypress.Commands.add("apiCreateComment", (postId, uniqueComment, token) => {
   return cy.request({
     method: "POST",
-    url: baseApiUrl.createComment(postId),
+    url: apiUrl.createComment(postId),
     headers: {
       Authorization: `Bearer ${token}`,
     },
