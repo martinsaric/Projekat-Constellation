@@ -5,6 +5,5 @@ export const apiURL = {
     createPost: `${baseApiUrl}/posts`,
     getComments: (postId) => `${baseApiUrl}//posts/${postId}/comments`,
     likePost: (postId) => `${baseApiURL}/posts/${postId}/like`,
-    createComment: (postId) => `${baseApiURL}/posts/${postId}/comments`
-
+    createComment: (postId) => `${baseApiURL}/posts/${postId}/comments`,
 }
