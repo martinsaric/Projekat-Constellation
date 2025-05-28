@@ -1,9 +1,13 @@
 # 🧪 Cypress Testing Project
 
 Title: This is the project for a social media web/mobile application. I used automation testing to cover functionalities, validations, responsiveness and API requests.
-Tech: Cypress, JS, REST API.
 
 ---
+
+## ✅ Tech stack
+
+Cypress, JS, REST API.
+
 
 ## ✅ Covered Features and testing objectives
 
