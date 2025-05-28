@@ -25,7 +25,7 @@ Tech: Cypress, JS, REST API.
 
 - **Responsiveness**
   - Some tests executed in the  Desktop viewport and some tests in the Mobile viewport 
-  **Cypress/e2e/posts/post-form-button-change**
+    Path: **Cypress/e2e/posts/post-form-button-change**
 
 - **Cross-browser support**
   - Scripts tested in: 
