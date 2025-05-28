@@ -43,7 +43,9 @@ Cypress.Commands.add("createNewPost", () => {
   const postTitle = `Test Post #${randomNumber}`;
 
   cy.get("div.card-body").should("be.visible");
-  cy.get('input[placeholder="What\'s happening"]').type(postTitle);
+  cy.get('input[placeholder="What\'s happening"]')
+  .type(postTitle, { delay: 0 })
+  .should("have.value", postTitle);
   cy.contains('button[type="button"]', "New post").click();
 
   return cy.wrap(postTitle);

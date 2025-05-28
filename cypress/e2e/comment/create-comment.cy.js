@@ -1,5 +1,7 @@
 describe("Create a comment", () => {
   it("Verify that the user can create a comment", () => {
+
+    cy.visit('/login');
     //Step 1: Cypress command to login with the user credentials
     cy.login("martinsaric94@gmail.com", "constel123");
 
@@ -14,10 +16,8 @@ describe("Create a comment", () => {
           .should("contain.text", "1");
 
         //Step 5: Verify that the comment is visible on the page
-        cy.get('div[class="post__comments"]').should(
-          "contain.text",
-          uniqueComment
-        );
+        cy.get('div[class="post__comments"]')
+        .should("contain.text", uniqueComment);
 
         //Clean Up
         //Step 6: Delete the comment
@@ -26,10 +26,8 @@ describe("Create a comment", () => {
           .click();
 
         //Step 7: Validating that the comment is deleted
-        cy.get('div[class="post__comments"]').should(
-          "not.contain.text",
-          uniqueComment
-        );
+        cy.get('div[class="post__comments"]')
+        .should("not.contain.text", uniqueComment);
       });
     });
   });
