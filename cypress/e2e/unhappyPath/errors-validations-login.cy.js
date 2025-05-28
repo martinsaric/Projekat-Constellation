@@ -66,7 +66,7 @@ describe("Errors validations for login form", () => {
   it("Email field only accepts valid email format", () => {
     cy.visit("/login");
 
-    cy.get('input[placeholder="Enter email here..."]').type("martinsaric94@gmail.com");
+    cy.get('input[placeholder="Enter email here..."]').type("martin");
     cy.get('button[id="loginSubmitBtn"]').click();
 
     cy.contains('[class="invalid-feedback"]', "Email format is not valid.")
