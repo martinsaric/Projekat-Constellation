@@ -1,4 +1,8 @@
 describe("Logout", () => {
+  beforeEach(() => {
+  cy.clearCookies();
+  cy.clearLocalStorage();
+});
   it("Verify that the user can logout", () => {
     //Step 1: Visit the login page (root URL)
     cy.visit("/login");

@@ -1,4 +1,9 @@
 describe("Login with valid credentials", () => {
+
+  beforeEach(() => {
+  cy.clearCookies();
+  cy.clearLocalStorage();
+});
   it("Verify that the URL is correct", () => {
     //Step 1: Visit login page ( root URL)
     cy.visit("/login");
