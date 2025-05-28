@@ -19,6 +19,8 @@ describe("Create a comment", () => {
           uniqueComment
         );
 
+
+        //Clean Up
         //Step 6: Delete the comment
         cy.contains('button[type="button"]', "Delete")
           .should("be.visible")

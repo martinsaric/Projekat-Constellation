@@ -40,9 +40,14 @@ describe("Liking a post functionality", () => {
 
         //Step 8: Unlike the post (It can't be deleted with like)
         cy.apiUnLikePost(postId, token).then(() => {
+
+          //Clean Up
           //Step 9: Delete the post
           cy.apiDeletePost(postId, token).then((response) => {
             expect(response.status).to.eq(200);
+          })
+          .catch((error) => {
+            console.error("Error deleting post:", error);
           });
         });
       });
