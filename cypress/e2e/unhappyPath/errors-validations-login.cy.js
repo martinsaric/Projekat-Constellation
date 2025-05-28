@@ -42,7 +42,8 @@ describe("Errors validations for login form", () => {
 
     cy.get('button[id="loginSubmitBtn"]').click();
 
-    cy.contains('[class="invalid-feedback"]', "Email field is required.");
+    cy.contains('[class="invalid-feedback"]', "Email field is required.")
+    .should("be.visible");
     cy.contains('[class="invalid-feedback"]', "Password field is required.")
     .should("be.visible");
   });
