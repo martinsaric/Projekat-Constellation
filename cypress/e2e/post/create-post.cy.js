@@ -1,3 +1,5 @@
+import { apiURL } from "../support/urls";
+
 describe("Creating new post", () => {
   it("Verify that the user can create a new post", () => {
     //Step 1: Login with valid credentials

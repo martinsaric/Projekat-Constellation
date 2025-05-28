@@ -1,3 +1,5 @@
+import { apiURL } from "../support/urls";
+
 describe("Delete a comment", () => {
   it("Verify that the user can delete a comment", () => {
     //Step 1: Visit the login page and login
@@ -15,10 +17,8 @@ describe("Delete a comment", () => {
           .should("contain.text", "1");
 
         //Step 5: Validating that the comment is visible
-        cy.get('div[class="post__comments"]').should(
-          "contain.text",
-          uniqueComment
-        );
+        cy.get('div[class="post__comments"]')
+        .should("contain.text", uniqueComment);
 
         //Step 6: Delete the comment
         cy.contains('button[type="button"]', "Delete")
@@ -26,10 +26,8 @@ describe("Delete a comment", () => {
           .click();
 
         //Step 7: Validating that the comment is deleted
-        cy.get('div[class="post__comments"]').should(
-          "not.contain.text",
-          uniqueComment
-        );
+        cy.get('div[class="post__comments"]')
+        .should("not.contain.text", uniqueComment);
 
         //Step 8: Validating that the comment count is reduced
         cy.contains(postTitle)
