@@ -15,3 +15,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+//Mochawesome reported must be imported from support/e2e file
+import 'cypress-mochawesome-reporter/register';

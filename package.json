@@ -8,7 +8,6 @@
     "test-all-chrome-headless": "cypress run --browser chrome --headless --reporter mochawesome",
     "test-all-firefox": "cypress run --browser firefox --reporter mochawesome",
     "test-all-edge": "cypress run --browser edge --reporter mochawesome"
-
   },
   "author": "Martin Saric",
   "license": "ISC",
