@@ -1,5 +1,3 @@
-import { apiUrl } from "../support/urls";
-
 describe("Creating new post", () => {
   it("Verify that the user can create a new post", () => {
     //Step 1: Login with valid credentials
@@ -31,10 +29,7 @@ describe("Creating new post", () => {
         //Clean Up
         //Step 7: Delete the post
         cy.apiDeletePost(postId, token).then((response) => {
-          expect(response.status).to.eq(200);
-        })
-        .catch((error) => {
-          console.error("Error deleting post:", error);
+          expect(response.status).to.eq(200)
         });
       });
     });

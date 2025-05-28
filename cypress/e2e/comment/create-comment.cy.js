@@ -1,5 +1,3 @@
-import { apiUrl } from "../support/urls";
-
 describe("Create a comment", () => {
   it("Verify that the user can create a comment", () => {
     //Step 1: Cypress command to login with the user credentials
@@ -21,7 +19,6 @@ describe("Create a comment", () => {
           uniqueComment
         );
 
-
         //Clean Up
         //Step 6: Delete the comment
         cy.contains('button[type="button"]', "Delete")
@@ -29,8 +26,10 @@ describe("Create a comment", () => {
           .click();
 
         //Step 7: Validating that the comment is deleted
-        cy.get('div[class="post__comments"]')
-        .should("not.contain.text",uniqueComment);
+        cy.get('div[class="post__comments"]').should(
+          "not.contain.text",
+          uniqueComment
+        );
       });
     });
   });

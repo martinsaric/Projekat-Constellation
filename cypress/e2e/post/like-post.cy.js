@@ -1,5 +1,3 @@
-import { apiUrl } from "../support/urls"
-
 describe("Liking a post functionality", () => {
   let postTitle;
 
@@ -47,10 +45,7 @@ describe("Liking a post functionality", () => {
           //Clean Up
           //Step 9: Delete the post
           cy.apiDeletePost(postId, token).then((response) => {
-            expect(response.status).to.eq(200);
-          })
-          .catch((error) => {
-            console.error("Error deleting post:", error);
+            expect(response.status).to.eq(200)
           });
         });
       });

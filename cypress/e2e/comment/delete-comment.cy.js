@@ -1,5 +1,3 @@
-import { apiUrl } from "../support/urls";
-
 describe("Delete a comment", () => {
   it("Verify that the user can delete a comment", () => {
     //Step 1: Visit the login page and login

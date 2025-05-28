@@ -1,5 +1,3 @@
-import { apiUrl } from "../support/urls";
-
 describe("Create an audio post", () => {
   it("Verify that the user can create an audio post", () => {
 
@@ -40,11 +38,8 @@ describe("Create an audio post", () => {
         //Clean Up
         //Step 7: Delete the post with API request
         cy.apiDeletePost(postId, token).then((response) => {
-          expect(response.status).to.eq(200);
-        })
-        .catch((error) => {
-          console.error("Error deleting post:", error);
-        })
+          expect(response.status).to.eq(200)
+        });
       });
     });
   });
