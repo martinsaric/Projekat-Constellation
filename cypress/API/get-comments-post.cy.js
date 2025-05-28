@@ -1,5 +1,5 @@
 //imported urls from support/urls.js file
-import { apiURL } from "../support/urls";
+import { apiUrl } from "../support/urls";
 
 describe("Get comments from post using API request", () => {
   it("Verify that the comments can be retrieved from post with API request", () => {
@@ -28,7 +28,7 @@ describe("Get comments from post using API request", () => {
             //Step 6: Get the comments from the post
             cy.request({
               method: "GET",
-              url: apiURL.getComments(postId),
+              url: apiUrl.getComments(postId),
               headers: {
                 Authorization: `Bearer ${token}`,
               },

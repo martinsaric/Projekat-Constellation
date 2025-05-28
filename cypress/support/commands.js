@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import { apiURL } from "../support/urls";
+import { apiUrl } from "../support/urls.js";
 
 // Command for login flow
 Cypress.Commands.add("login", (email, password) => {
@@ -213,7 +213,7 @@ Cypress.Commands.add("apiGetComment", (postId, uniqueComment, token) => {
   return cy
     .request({
       method: "GET",
-      url: apiURL.getComments(postId),
+      url: apiUrl.getComments(postId),
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-all-chrome-headless": "cypress run --browser chrome --headless --reporter mochawesome",
     "test-all-firefox": "cypress run --browser firefox --reporter mochawesome",
-    "test-all-edge": "cypress run --browser edge --reporter mochawesome"
+    "test-all-electron": "cypress run --browser electron --headless --reporter mochawesome"
   },
   
   "author": "Martin Saric",
