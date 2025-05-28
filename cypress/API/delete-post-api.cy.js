@@ -1,3 +1,5 @@
+import { apiURL } from "../support/urls";
+
 describe("Delete post using API request", () => {
   it("Verify that the post can be deleted with API request", () => {
     //Step 1: Login with API and get the token

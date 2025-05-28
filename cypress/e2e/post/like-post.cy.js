@@ -1,3 +1,5 @@
+import { apiURL } from "../support/urls";
+
 describe("Liking a post functionality", () => {
   let postTitle;
 

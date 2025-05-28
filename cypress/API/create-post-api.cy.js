@@ -1,3 +1,5 @@
+import { apiURL } from "../support/urls";
+
 describe("Create post with API request", () => {
   it("Verify that the post can be created with API request", () => {
 
