@@ -43,6 +43,8 @@ describe("Get comments from post using API request", () => {
               //Step 8: Get the comment ID so it can be deleted
               const commentId = myComment.comment_id;
 
+
+              //Clean Up
               //Step 9: Delete the comment and validate it
               cy.apiDeleteComment(postId, commentId, token).then((response) => {
                 expect(response.status).to.eq(200);

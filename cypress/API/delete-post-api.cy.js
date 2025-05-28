@@ -14,6 +14,8 @@ describe("Delete post using API request", () => {
         cy.apiGetPost(postTitle, token).then((myPost) => {
           const postId = myPost.post_id;
 
+
+          //Clean Up
           //Step 5: Delete the post
           cy.apiDeletePost(postId, token).then((response) => {
             expect(response.status).to.eq(200);

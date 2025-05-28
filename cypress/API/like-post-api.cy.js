@@ -30,6 +30,8 @@ describe("Like post using API request", () => {
             cy.apiUnLikePost(postId, token).then((response) => {
               expect(response.status).to.eq(200);
 
+
+              //Clean Up
               //Step 7: Delete the post using API request and validate
               cy.apiDeletePost(postId, token).then((response) => {
                 expect(response.status).to.eq(200);

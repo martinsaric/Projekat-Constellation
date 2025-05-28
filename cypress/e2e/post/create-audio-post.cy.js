@@ -34,10 +34,15 @@ describe("Create an audio post", () => {
       cy.apiGetPost(audioPostTitle, token).then((myPost) => {
         const postId = myPost.post_id;
 
+
+        //Clean Up
         //Step 7: Delete the post with API request
         cy.apiDeletePost(postId, token).then((response) => {
           expect(response.status).to.eq(200);
-        });
+        })
+        .catch((error) => {
+          console.error("Error deleting post:", error);
+        })
       });
     });
   });
