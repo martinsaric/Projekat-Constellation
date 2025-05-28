@@ -1,4 +1,4 @@
-import { apiURL } from "../support/urls";
+import { apiUrl } from "../support/urls";
 
 describe("Delete post using API request", () => {
   it("Verify that the post can be deleted with API request", () => {

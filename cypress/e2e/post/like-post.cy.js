@@ -1,4 +1,4 @@
-import { apiURL } from "../support/urls"
+import { apiUrl } from "../support/urls"
 
 describe("Liking a post functionality", () => {
   let postTitle;
@@ -16,6 +16,7 @@ describe("Liking a post functionality", () => {
       cy.visit("/home");
       cy.contains(postTitle).should("be.visible");
 
+      //Couldn't find more stable selector for the like button
       //Step 4: Like the post
       cy.contains(postTitle)
         .parents('div[class="home__main__feed__post__body"]')

@@ -1,4 +1,4 @@
-import { apiURL } from "../support/urls";
+import { apiUrl } from "../support/urls";
 
 describe("Create an audio post", () => {
   it("Verify that the user can create an audio post", () => {

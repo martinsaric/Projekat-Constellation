@@ -1,4 +1,4 @@
-import { apiURL } from "../support/urls";
+import { apiUrl } from "../support/urls";
 
 describe("Delete a comment", () => {
   it("Verify that the user can delete a comment", () => {

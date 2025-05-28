@@ -1,4 +1,4 @@
-import { apiURL } from "../support/urls";
+import { apiUrl } from "../support/urls";
 
 describe("Like post using API request", () => {
   it("Verify that the post can be liked with API request", () => {

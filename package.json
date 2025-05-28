@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-all-chrome-headless": "cypress run --browser chrome --headless --reporter mochawesome",
+    "test-all-chrome-headless": "cypress run --browser chrome --headless",
     "test-all-firefox": "cypress run --browser firefox --reporter mochawesome",
     "test-all-electron": "cypress run --browser electron --headless --reporter mochawesome"
   },

@@ -1,4 +1,4 @@
-import { apiURL } from "../support/urls";
+import { apiUrl } from "../support/urls";
 
 describe("Creating new post", () => {
   it("Verify that the user can create a new post", () => {
